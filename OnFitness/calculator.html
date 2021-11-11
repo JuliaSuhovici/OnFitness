@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
+
+
+    <title>Калькулятор</title>
+
+
+    <link href="assets/img/favicon.png" rel="icon">
+    <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="assets/css/styleCalculator.css" rel="stylesheet">
+</head>
+
+<body>
+
+    <!-- ======= Header ======= -->
+    <header id="header" class="fixed-top d-flex align-items-center">
+        <div class="container d-flex align-items-center">
+            <h1 class="logo me-auto"><a href="index.html">OnFitness</a></h1>
+
+            <nav id="navbar" class="navbar order-last order-lg-0">
+                <ul>
+                    <li><a class="nav-link" href="index.html">Главная</a></li>
+                    <li><a class="nav-link" href="#service">Услуги</a></li>
+                    <li><a class="nav-link" href="#faq">FAQ</a></li>
+                    <li><a class="nav-link" href="#contacts">Контакты</a></li>
+                </ul>
+
+            </nav><!-- .navbar -->
+
+            <a href="#" class="get-started-btn scrollto">ВОЙТИ</a>
+        </div>
+    </header><!-- End Header -->
+
+    <main id="main">
+
+        <!-- ======= Breadcrumbs ======= -->
+        <section class="breadcrumbs">
+            <div class="container">
+                <ol>
+                    <li><a href="index.html">Главная</a></li>
+                    <li>Калькулятор калорий</li>
+                </ol>
+                <h2>Калькулятор калорий</h2>
+            </div>
+        </section><!-- End Breadcrumbs -->
+
+
+        <section class="container1">
+            <p class="title">Введите свои данные ниже, чтобы рассчитать рекомендуемое количество калорий</p>
+            <ul class="responsive-table">
+                <li class="table-row">
+                    <div class="cell cell-1">Пол</div>
+                    <div class="cell cell-2">
+                        <input type="radio" name="gender" value="male" id="male" checked="checked"> Мужчина
+                        &nbsp &nbsp<input type="radio" name="gender" value="female" id="female" checked="checked"> Женщина
+                    </div>
+                </li>
+                <li class="table-row">
+                    <div class="cell cell-1">Возраст</div>
+                    <div class="cell cell-2">
+                        <input type="number" min="0" id="age" placeholder="">
+                        <div style="display: none;" id="ATT">Введите действительное значение</div>
+                    </div>
+                </li>
+                <li class="table-row">
+                    <div class="cell cell-1">Вес</div>
+                    <div class="cell cell-2">
+                        <input type="number" min="0" id="weight">
+                        <div style="display: none;" id="WTT">Введите действительное значение</div>
+                    </div>
+                </li>
+                <li class="table-row">
+                    <div class="cell cell-1">Рост</div>
+                    <div class="cell cell-2">
+                        <input type="number" min="0" id="height">
+                        <div style="display: none;" id="HTT">Введите действительное значение</div>
+                    </div>
+                </li>
+                <li class="table-row">
+                    <div class="cell cell-1">Уровень активности</div>
+                    <div class="cell cell-2">
+                        <select>
+                            <option id="0">Минимальная активность (сидячая работа, минимум движения)</option>
+                            <option id="1">Небольшая активность (легкие тренировки или прогулки)</option>
+                            <option id="2">Средняя активность (тренировки 1-3 раза в неделю)</option>
+                            <option id="3">Активность выше среднего (интенсивные тренировки 3-5 раз в неделю)</option>
+                            <option id="4">Повышенная активность (ежедневные тренировки)</option>
+                            <option id="5">Очень высокая активность (ежедневные ультра-интенсивные тренировки и высокая дневная активность)</option>
+                        </select>
+                    </div>
+                </li>
+                <button type="button" onclick="calc()" class="btn">Рассчитать</button>
+            </ul>
+
+            <div id="Final" class="card text-center" style="display: none;">
+                <table>
+                    <tr>
+                        <td class="">Для поддержания веса</td>
+                        <td>
+                            Калории/день<p id="a"></p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            Для потери веса<p>0.5 кг в неделю</p>
+                        </td>
+                        <td>
+                            Калории/день<p id="b"></p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            Для увеличения веса<p>0.5 кг в неделю</p>
+                        </td>
+                        <td>
+                            Калории/день<p id="c"></p>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+        </section>
+    </main>
+    <!-- End #main -->
+    <!-- ======= Footer ======= -->
+    <footer id="footer">
+
+        <div class="footer-top">
+            <div class="container">
+                <div class="row">
+
+                    <div class="col-lg-3 col-md-6 footer-contact">
+                        <h3>OnFitness</h3>
+                        <p>
+
+                            <strong>Телефон:</strong> +37368921508<br>
+                            <strong>Email:</strong> onfitness@gmail.com<br>
+                        </p>
+                    </div>
+
+                    <div class="col-lg-2 col-md-6 footer-links">
+                        <h4>Меню</h4>
+                        <ul>
+                            <li><i class="bx bx-chevron-right"></i> <a href="#">Главная</a></li>
+                            <li><i class="bx bx-chevron-right"></i> <a href="#">О нас</a></li>
+                            <li><i class="bx bx-chevron-right"></i> <a href="#">Услуги</a></li>
+                            <li><i class="bx bx-chevron-right"></i> <a href="#">FAQ</a></li>
+                        </ul>
+                    </div>
+
+                    <div class="col-lg-3 col-md-6 footer-links">
+                        <h4>Наши услуги</h4>
+                        <ul>
+                            <li><i class="bx bx-chevron-right"></i> <a href="#">Калькулятор каллорий</a></li>
+                            <li><i class="bx bx-chevron-right"></i> <a href="#">Определение типа фигуры</a></li>
+                            <li><i class="bx bx-chevron-right"></i> <a href="#">Разработка плана тренировок</a></li>
+                            <li><i class="bx bx-chevron-right"></i> <a href="#">Разработка плана питания</a></li>
+                        </ul>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </footer><!-- End Footer -->
+
+    <!-- Vendor JS Files -->
+    <!-- Template Main JS File -->
+    <script src="assets/js/main.js"></script>
+
+    <script src="assets/js/sc.js"></script>
+</body>
+
+</html>

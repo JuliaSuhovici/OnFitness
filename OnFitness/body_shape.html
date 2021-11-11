@@ -1,0 +1,576 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+  <title>Тип фигуры</title>
+
+
+  <!-- Favicons -->
+  <link href="assets/img/favicon.png" rel="icon">
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
+
+  <!-- Vendor CSS Files -->
+  <link href="assets/vendor/aos/aos.css" rel="stylesheet">
+  <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+  <link href="assets/vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
+  <link href="assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
+  <link href="assets/vendor/remixicon/remixicon.css" rel="stylesheet">
+  <link href="assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
+
+  <!--  Main CSS File -->
+  <link href="assets/css/styleCalculator.css" rel="stylesheet">
+
+
+</head>
+<style>
+
+body {font-family: Arial, Helvetica, sans-serif;}
+
+/* The Modal (background) */
+.modal {
+  display: none; /* Hidden by default */
+  position: fixed; /* Stay in place */
+  z-index: 1; /* Sit on top */
+  padding-top: 100px; /* Location of the box */
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  background-color: rgb(0,0,0); /* Fallback color */
+  background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+}
+
+/* Modal Content */
+.modal-content {
+  position: relative;
+  background-color: #fefefe;
+  margin: auto;
+  padding: 0;
+  border: 1px solid #888;
+  width: 80%;
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19);
+  -webkit-animation-name: animatetop;
+  -webkit-animation-duration: 0.4s;
+  animation-name: animatetop;
+  animation-duration: 0.4s
+}
+
+/* Add Animation */
+@-webkit-keyframes animatetop {
+  from {top:-300px; opacity:0} 
+  to {top:0; opacity:1}
+}
+
+@keyframes animatetop {
+  from {top:-300px; opacity:0}
+  to {top:0; opacity:1}
+}
+
+/* The Close Button */
+.close {
+  color: white;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+  color: #000;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.modal-header {
+  padding: 2px 16px;
+  background-color: #5cb85c;
+  color: white;
+}
+
+.modal-body {padding: 2px 16px;}
+
+.modal-footer {
+  padding: 2px 16px;
+  background-color: #5cb85c;
+  color: white;
+}
+</style>
+
+  <script>
+// Get the modal
+var modal = document.getElementById("myModal");
+
+// Get the button that opens the modal
+var btn = document.getElementById("myBtn");
+
+// Get the <span> element that closes the modal
+var span = document.getElementsByClassName("close")[0];
+
+// When the user clicks the button, open the modal 
+btn.onclick = function() {
+  modal.style.display = "block";
+}
+
+// When the user clicks on <span> (x), close the modal
+span.onclick = function() {
+  modal.style.display = "none";
+}
+
+// When the user clicks anywhere outside of the modal, close it
+window.onclick = function(event) {
+  if (event.target == modal) {
+    modal.style.display = "none";
+  }
+}
+</script>
+
+<style>
+#form1 {
+  text-align: center;
+}
+
+label {
+  width: 60%;
+  font-size: 1rem;
+}
+
+.card-input-element+.card {
+  height: calc(36px + 2*1rem);
+  color: var(--primary);
+  -webkit-box-shadow: none;
+  box-shadow: none;
+  border: 2px solid transparent;
+  border-radius: 4px;
+}
+
+.card-input-element+.card:hover {
+  cursor: pointer;
+}
+
+.card-input-element:checked+.card {
+  border: 2px solid var(--primary);
+  -webkit-transition: border .3s;
+  -o-transition: border .3s;
+  transition: border .3s;
+}
+
+.card-input-element:checked+.card::after {
+  content: '\e5ca';
+  color:#9134B1;
+  font-family: 'Material Icons';
+  font-size: 24px;
+  -webkit-animation-name: fadeInCheckbox;
+  animation-name: fadeInCheckbox;
+  -webkit-animation-duration: .5s;
+  animation-duration: .5s;
+  -webkit-animation-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  animation-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+@-webkit-keyframes fadeInCheckbox {
+  from {
+    opacity: 0;
+    -webkit-transform: rotateZ(-20deg);
+  }
+  to {
+    opacity: 1;
+    -webkit-transform: rotateZ(0deg);
+  }
+}
+
+@keyframes fadeInCheckbox {
+  from {
+    opacity: 0;
+    transform: rotateZ(-20deg);
+  }
+  to {
+    opacity: 1;
+    transform: rotateZ(0deg);
+  }
+}
+
+#my_button {
+  width: 20%;
+  margin-top: 30px;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  background-color: #9134B1;
+}
+
+</style>
+
+<body>
+
+    <!-- ======= Header ======= -->
+    <header id="header" class="fixed-top d-flex align-items-center">
+        <div class="container d-flex align-items-center">
+            <h1 class="logo me-auto"><a href="index.html">OnFitness</a></h1>
+
+            <nav id="navbar" class="navbar order-last order-lg-0">
+                <ul>
+                    <li><a class="nav-link" href="index.html">Главная</a></li>
+                    <li><a class="nav-link" href="#service">Услуги</a></li>
+                    <li><a class="nav-link" href="#faq">FAQ</a></li>
+                    <li><a class="nav-link" href="#contacts">Контакты</a></li>
+                </ul>
+
+            </nav><!-- .navbar -->
+
+            <a href="#" class="get-started-btn scrollto">ВОЙТИ</a>
+        </div>
+    </header><!-- End Header -->
+
+    <main id="main">
+
+        <!-- ======= Breadcrumbs ======= -->
+        <section class="breadcrumbs">
+            <div class="container">
+                <ol>
+                    <li><a href="index.html">Главная</a></li>
+                    <li>Калькулятор калорий</li>
+                </ol>
+                <h2>Калькулятор калорий</h2>
+            </div>
+        </section><!-- End Breadcrumbs -->
+
+        <section class="inner-page">
+            <div class="container" data-aos="fade-up">
+                <p>
+                    <script>
+
+                        function Test() {
+
+                            var shoulders_values = document.getElementsByName('shoulders');
+                            var chest_values = document.getElementsByName('chest');
+                            var waist_values = document.getElementsByName('waist');
+                            var hips_values = document.getElementsByName('hips');
+                            var height_values = document.getElementsByName('height');
+
+                            var shoulder_item;
+                            var chest_item;
+                            var waist_item;
+                            var hips_item;
+                            var height_item;
+                            var result = "";
+
+                            for (var i = 0; i < shoulders_values.length; i++) {
+                                if (shoulders_values[i].checked) {
+                                    shoulder_item = shoulders_values[i].value;
+                                }
+                            }
+
+                            for (var i = 0; i < chest_values.length; i++) {
+                                if (chest_values[i].checked) {
+                                    chest_item = chest_values[i].value;
+                                }
+                            }
+
+                            for (var i = 0; i < waist_values.length; i++) {
+                                if (waist_values[i].checked) {
+                                    waist_item = waist_values[i].value;
+                                }
+                            }
+
+                            for (var i = 0; i < hips_values.length; i++) {
+                                if (hips_values[i].checked) {
+                                    hips_item = hips_values[i].value;
+                                }
+                            }
+
+                            for (var i = 0; i < height_values.length; i++) {
+                                if (height_values[i].checked) {
+                                    height_item = height_values[i].value;
+                                }
+                            }
+
+                            if (shoulder_item == "Средние" && chest_item == "Средняя" && waist_item == "Невыраженная"
+                                && hips_item == "Средние" && (height_item == "От 160 до 180 см" || height_item == "Менее 160 см"
+                                    || height_item == "Более 180 см")) {
+                                result = "Прямоугольник";
+                            }
+
+                            else if (shoulder_item == "Широкие" && (chest_item == "Большая" || chest_item == "Маленькая" || chest_item == "Средняя")
+                                && waist_item == "Ярковыраженная" && hips_item == "Широкие" && (height_item == "От 160 до 180 см" || height_item == "Менее 160 см"
+                                    || height_item == "Более 180 см")) {
+                                result = "Песочные часы";
+                            }
+
+                            else if (shoulder_item == "Широкие" && (chest_item == "Большая" || chest_item == "Средняя")
+                                && (waist_item == "Ярковыраженная" || waist_item == "Невыраженная" || waist_item == "Объемная")
+                                && (hips_item == "Узкие" || hips_item == "Средние")
+                                && (height_item == "От 160 до 180 см" || height_item == "Менее 160 см"
+                                    || height_item == "Более 180 см")) {
+                                result = "Перевернутый треугольник";
+                            }
+
+                            else if ((shoulder_item == "Широкие" || shoulder_item == "Средние")
+                                && (chest_item == "Большая" || chest_item == "Средняя")
+                                && (waist_item == "Невыраженная" || waist_item == "Объемная")
+                                && (hips_item == "Широкие" && hips_item == "Средние")
+                                && (height_item == "От 160 до 180 см" || height_item == "Менее 160 см"
+                                    || height_item == "Более 180 см")) {
+                                result = "Яблоко";
+                            }
+
+                            else if ((shoulder_item == "Узкие" || shoulder_item == "Средние")
+                                && (chest_item == "Большая" || chest_item == "Средняя" || chest_item == "Маленькая")
+                                && (waist_item == "Ярковыраженная" || waist_item == "Невыраженная")
+                                && (hips_item == "Широкие" || hips_item == "Средние")
+                                && (height_item == "От 160 до 180 см" || height_item == "Менее 160 см"
+                                    || height_item == "Более 180 см")) {
+                                result = "Груша";
+                            }
+
+                            else {
+                                result = "Смешанный тип";
+                            }
+
+
+                            document.getElementById("result").innerHTML = result;
+
+                        }
+                    </script>
+
+                    <body>
+                        <!--
+                              <form id="form1" onsubmit="return false;">
+
+                                <h2>Выберите тип Ваших плеч:</h2>
+                                <label for="large_shoulders"><input type="radio" name="shoulders" value="Широкие" id="large_shoulders" />Широкие</label>
+                                <label for="medium_shoulders"><input type="radio" name="shoulders" value="Средние" id="medium_shoulders" />Средние</label>
+                                <label for="small_shoulders"><input type="radio" name="shoulders" value="Узкие" id="small_shoulders" />Узкие</label>
+
+                                <h2>Выберите объем груди:</h2>
+                                <label for="small_chest"><input type="radio" name="chest" value="Маленькая" id="small_chest"/>Маленькая</label>
+                                <label for="medium_chest"><input type="radio" name="chest" value="Средняя" id="medium_chest"/>Средняя</label>
+                                <label for="big_chest"><input type="radio" name="chest" value="Большая" id="big_chest" />Большая</label>
+
+                                <h2>Выберите объем талии:</h2>
+                                <label for="unex_waist"><input type="radio" name="waist" value="Невыраженная" id="unex_waist" />Невыраженная</label>
+                                <label for="ex_waist"><input type="radio" name="waist" value="Ярковыраженная" id="ex_waist" />Ярковыраженная</label>
+                                <label for="no_waist"><input type="radio" name="waist" value="Объемная" id="no_waist" />Объемная</label>
+
+                                <h2>Выберите тип Ваших бедер:</h2>
+                                <label for="small_hips"><input type="radio" name="hips" value="Узкие" id="small_hips" />Узкие</label>
+                                <label for="medium_hips"><input type="radio" name="hips" value="Средние" id="medium_hips" />Средние</label>
+                                <label for="large_hips"><input type="radio" name="hips" value="Широкие" id="large_hips" />Широкие</label>
+
+                                <h2>Укажите Ваш рост:</h2>
+                                <label for="height_less_160"><input type="radio" name="height" value="Менее 160 см" id="height_less_160" />Менее 160 см</label>
+                                <label for="height_from_160_to_180"><input type="radio" name="height" value="От 160 до 180 см" id="height_from_160_to_180" />От 160 до 180 см</label>
+                                <label for="height_more_180"><input type="radio" name="height" value="Более 180 см" id="height_more_180" />Более 180 см</label>
+
+                                <div><button type="submit" onclick="Test()" class="btn btn-secondary">Узнать</button></div>
+
+                                </form>
+
+                              <p>Ваш результат: <span id="result"></span></p>
+                              <p id="result2"></p>
+                              </div> -->
+
+
+                        <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700" rel="stylesheet">
+                        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+                        <div class="container">
+                            <div class="row mt-4">
+                                <div class="col">
+                                    <div class="jumbotron">
+                                        <form id="form1" onsubmit="return false;">
+                <p class="lead">
+                    Выберите тип плеч:
+                </p>
+                <label>
+                    <input type="radio" name="shoulders" class="card-input-element d-none" id="large_shoulders" value="Широкие">
+                    <div class="card card-body bg-light d-flex flex-row justify-content-between align-items-center">
+                        Широкие
+                    </div>
+                </label>
+                <label class="mt-3">
+                    <input type="radio" name="shoulders" class="card-input-element d-none" id="medium_shoulders" value="Средние">
+                    <div class="card card-body bg-light d-flex flex-row justify-content-between align-items-center">
+                        Средние
+                    </div>
+                </label>
+                <label class="mt-3">
+                    <input type="radio" name="shoulders" class="card-input-element d-none" id="medium_shoulders" value="Узкие">
+                    <div class="card card-body bg-light d-flex flex-row justify-content-between align-items-center">
+                        Узкие
+                    </div>
+                </label>
+
+                &nbsp;&nbsp;
+
+
+                <p class="lead">
+                    Выберите объем груди:
+                </p>
+                <label>
+                    <input type="radio" name="chest" class="card-input-element d-none" id="big_chest" value="Большая">
+                    <div class="card card-body bg-light d-flex flex-row justify-content-between align-items-center">
+                        Большая
+                    </div>
+                </label>
+                <label class="mt-3">
+                    <input type="radio" name="chest" class="card-input-element d-none" id="medium_chest" value="Средняя">
+                    <div class="card card-body bg-light d-flex flex-row justify-content-between align-items-center">
+                        Средняя
+                    </div>
+                </label>
+                <label class="mt-3">
+                    <input type="radio" name="chest" class="card-input-element d-none" id="small_chest" value="Маленькая">
+                    <div class="card card-body bg-light d-flex flex-row justify-content-between align-items-center">
+                        Маленькая
+                    </div>
+                </label>
+                &nbsp;&nbsp;
+
+
+                <p class="lead">
+                    Выберите объем талии:
+                </p>
+                <label>
+                    <input type="radio" name="waist" class="card-input-element d-none" id="unex_waist" value="Слабовыраженная">
+                    <div class="card card-body bg-light d-flex flex-row justify-content-between align-items-center">
+                        Слабовыраженная
+                    </div>
+                </label>
+                <label class="mt-3">
+                    <input type="radio" name="waist" class="card-input-element d-none" id="ex_waist" value="Ярковыраженная">
+                    <div class="card card-body bg-light d-flex flex-row justify-content-between align-items-center">
+                        Ярковыраженная
+                    </div>
+                </label>
+                <label class="mt-3">
+                    <input type="radio" name="waist" class="card-input-element d-none" id="no_waist" value="Объемная">
+                    <div class="card card-body bg-light d-flex flex-row justify-content-between align-items-center">
+                        Объемная
+                    </div>
+                </label>
+                &nbsp;&nbsp;
+
+
+                <p class="lead">
+                    Выберите тип бедер:
+                </p>
+                <label>
+                    <input type="radio" name="hips" class="card-input-element d-none" id="large_hips" value="Широкие">
+                    <div class="card card-body bg-light d-flex flex-row justify-content-between align-items-center">
+                        Широкие
+                    </div>
+                </label>
+                <label class="mt-3">
+                    <input type="radio" name="hips" class="card-input-element d-none" id="medium_hips" value="Средние">
+                    <div class="card card-body bg-light d-flex flex-row justify-content-between align-items-center">
+                        Средние
+                    </div>
+                </label>
+                <label class="mt-3">
+                    <input type="radio" name="hips" class="card-input-element d-none" id="small_hips" value="Узкие">
+                    <div class="card card-body bg-light d-flex flex-row justify-content-between align-items-center">
+                        Узкие
+                    </div>
+                </label>
+                &nbsp;&nbsp;
+
+                <p class="lead">
+                    Укажите Ваш рост:
+                </p>
+                <label>
+                    <input type="radio" name="height" class="card-input-element d-none" id="height_less_160" value="Менее 160 см">
+                    <div class="card card-body bg-light d-flex flex-row justify-content-between align-items-center">
+                        Менее 160 см
+                    </div>
+                </label>
+                <label class="mt-3">
+                    <input type="radio" name="height" class="card-input-element d-none" id="height_from_160_to_180" value="От 160 до 180 см">
+                    <div class="card card-body bg-light d-flex flex-row justify-content-between align-items-center">
+                        От 160 до 180 см
+                    </div>
+                </label>
+                <label class="mt-3">
+                    <input type="radio" name="height" class="card-input-element d-none" id="height_more_180" value="Более 180 см">
+                    <div class="card card-body bg-light d-flex flex-row justify-content-between align-items-center">
+                        Более 180 см
+                    </div>
+                </label>
+
+
+                <div><button id="my_button" type="submit" onclick="Test()" class="btn btn-secondary">Узнать</button></div>
+
+                </form>
+
+                <p style="text-align: center;"><span id="result"></span></p>
+
+            </div>
+            </div>
+            </div>
+
+            </p>
+            </div>
+        </section>
+
+    </main><!-- End #main -->
+    <!-- ======= Footer ======= -->
+    <footer id="footer">
+
+        <div class="footer-top">
+            <div class="container">
+                <div class="row">
+
+                    <div class="col-lg-3 col-md-6 footer-contact">
+                        <h3>OnFitness</h3>
+                        <p>
+
+                            <strong>Телефон:</strong> +37368921508<br>
+                            <strong>Email:</strong> onfitness@gmail.com<br>
+                        </p>
+                    </div>
+
+                    <div class="col-lg-2 col-md-6 footer-links">
+                        <h4>Меню</h4>
+                        <ul>
+                            <li><i class="bx bx-chevron-right"></i> <a href="#">Главная</a></li>
+                            <li><i class="bx bx-chevron-right"></i> <a href="#">О нас</a></li>
+                            <li><i class="bx bx-chevron-right"></i> <a href="#">Услуги</a></li>
+                            <li><i class="bx bx-chevron-right"></i> <a href="#">FAQ</a></li>
+                        </ul>
+                    </div>
+
+                    <div class="col-lg-3 col-md-6 footer-links">
+                        <h4>Наши услуги</h4>
+                        <ul>
+                            <li><i class="bx bx-chevron-right"></i> <a href="#">Калькулятор каллорий</a></li>
+                            <li><i class="bx bx-chevron-right"></i> <a href="#">Определение типа фигуры</a></li>
+                            <li><i class="bx bx-chevron-right"></i> <a href="#">Разработка плана тренировок</a></li>
+                            <li><i class="bx bx-chevron-right"></i> <a href="#">Разработка плана питания</a></li>
+                        </ul>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </footer><!-- End Footer -->
+
+    <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+
+    <!-- Vendor JS Files -->
+    <script src="assets/vendor/aos/aos.js"></script>
+    <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="assets/vendor/glightbox/js/glightbox.min.js"></script>
+    <script src="assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
+    <script src="assets/vendor/php-email-form/validate.js"></script>
+    <script src="assets/vendor/purecounter/purecounter.js"></script>
+    <script src="assets/vendor/swiper/swiper-bundle.min.js"></script>
+
+    <!-- Template Main JS File -->
+    <script src="assets/js/main.js"></script>
+
+</body>
+
+</html>
